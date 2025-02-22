@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Profile from "@/components/Profile";
-
+import { Suspense } from "react";
 function UserProfile({ params }) {
     const searchparams = useSearchParams();
     const userName = searchparams.get("name");
@@ -18,12 +18,14 @@ function UserProfile({ params }) {
         if (params?.id) fetchPosts();
     }, [params.id]);
     return (
-        <Profile
-            name={userName}
-            desc={`Welcome to ${userName}'s personalized profile page. Explore ${userName}'s exceptional prompts`}
-            data={userPosts}
-        />
-  );
+        <Suspense>
+            <Profile
+                name={userName}
+                desc={`Welcome to ${userName}'s personalized profile page. Explore ${userName}'s exceptional prompts`}
+                data={userPosts}
+            />
+        </Suspense>
+    );
 }
 
 export default UserProfile;

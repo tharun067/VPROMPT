@@ -5,9 +5,15 @@ const nextConfig = {
         serverComponentsExternalPackages: ["mongoose"],
     },
     images: {
-        domains: [
-            'scontent.fhyd10-1.fna.fbcdn.net',
-            'lh3.googleusercontent.com',
+        remotePatterns: [
+            {
+              protocol: 'https',
+              hostname: 'scontent.fhyd10-1.fna.fbcdn.net',
+            },
+            {
+              protocol: 'https',
+              hostname: 'lh3.googleusercontent.com',
+            },
         ],
     },
     webpack(config) {
