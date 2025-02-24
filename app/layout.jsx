@@ -7,6 +7,9 @@ import "@/styles/global.css";
 export const metadata = {
   title: "Vprompt",
   description: "Discover & Share Prompt",
+  icon: [
+    {url:'/favicon.ico',type:'image/x-icon'},
+  ],
 };
 
 export default function RootLayout({ children }) {
